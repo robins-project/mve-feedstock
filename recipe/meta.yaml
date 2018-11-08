@@ -1,0 +1,60 @@
+{% set name = "mve" %}
+{% set version = "master" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://github.com/simonfuhrmann/mve/archive/{{ version }}.tar.gz
+  sha256: deaa1bcf04817c602119236e9efdd06a762bc8b0c8bb477ddcec0401d803913a
+
+build:
+    number: 0
+
+requirements:
+  # build:
+    # - {{ compiler("c") }}
+    # - {{ compiler("cxx") }}
+  host:
+    - libpng
+    - openjpeg
+    - libtiff
+    - qt {{ qt }}
+
+test:
+  commands:
+    - test -f $PREFIX/bin/bundle2pset
+    - test -f $PREFIX/bin/dmrecon
+    - test -f $PREFIX/bin/featurerecon
+    - test -f $PREFIX/bin/fssrecon
+    - test -f $PREFIX/bin/makescene
+    - test -f $PREFIX/bin/mesh2pset
+    - test -f $PREFIX/bin/meshalign
+    - test -f $PREFIX/bin/meshclean
+    - test -f $PREFIX/bin/meshconvert
+    - test -f $PREFIX/bin/prebundle
+    - test -f $PREFIX/bin/scene2pset
+    - test -f $PREFIX/bin/sceneupgrade
+    - test -f $PREFIX/bin/sfmrecon
+    - test -f $PREFIX/bin/umve
+    - test -f $PREFIX/lib/libmve.a
+    - test -f $PREFIX/lib/libmve_dmrecon.a
+    - test -f $PREFIX/lib/libmve_fssr.a
+    - test -f $PREFIX/lib/libmve_ogl.a
+    - test -f $PREFIX/lib/libmve_sfm.a
+    - test -f $PREFIX/lib/libmve_util.a
+
+about:
+  home: https://www.gcc.tu-darmstadt.de/home/proj/mve/
+  license: BSD 3-Clause
+  summary: >
+    The Multi-View Environment is an effort to ease the work with multi-view datasets
+    and to support the development of algorithms based on multiple views.
+    It features Structure from Motion, Multi-View Stereo and Surface Reconstruction.
+    MVE is developed at the TU Darmstadt. Visit the following website for more details.
+
+extra:
+  recipe-maintainers:
+    - v-turin
