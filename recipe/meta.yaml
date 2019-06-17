@@ -1,5 +1,6 @@
 {% set name = "mve" %}
 {% set version = "master" %}
+{% set commit = "55eb94f34f82694e0f25a7f235c25a06acc0bfae" %}
 
 package:
   name: {{ name }}
@@ -7,8 +8,8 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://github.com/simonfuhrmann/mve/archive/{{ version }}.tar.gz
-  sha256: deaa1bcf04817c602119236e9efdd06a762bc8b0c8bb477ddcec0401d803913a
+  url: https://github.com/simonfuhrmann/mve/archive/{{ commit }}.tar.gz
+  sha256: a1880f243b38ec0b669aa638225e45f300c508e621b1ee0fb3d444a665a512cc
 
 build:
     number: 0

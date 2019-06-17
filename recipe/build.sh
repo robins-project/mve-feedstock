@@ -1,6 +1,7 @@
 #!/bin/sh
 export CPPFLAGS="-I${PREFIX}/include"
 export LDFLAGS="$LDFLAGS -L${PREFIX}/lib"
+export CXXINTRINSICS="-msse2 -msse3 -msse4 -mpopcnt"
 make -j${CPU_COUNT}
 
 cd apps/umve/
